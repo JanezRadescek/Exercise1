@@ -6,17 +6,28 @@ int i = 0;
 // Note the return type: void*
 void* incrementingThreadFunction(){
     // TODO: increment i 1_000_000 times
+    for (int j = 1; j < 1000000; j++)
+    {
+        i++;
+    }
     return NULL;
 }
 
 void* decrementingThreadFunction(){
     // TODO: decrement i 1_000_000 times
+    for (int j = 1; j < 1000000; j++)
+    {
+        i--;
+    }
     return NULL;
 }
 
 
 int main(){
     // TODO: declare incrementingThread and decrementingThread (hint: google pthread_create)
+    pthread_tv incrementingThread;
+    pthread_tv decrementingThread;
+
     pthread_create(&incrementingThread, NULL, incrementingThreadFunction, NULL);
     pthread_create(&decrementingThread, NULL, decrementingThreadFunction, NULL);
     
